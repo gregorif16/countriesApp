@@ -12,6 +12,7 @@
 
   <ul>
     <li>MVVM</li>
+    <li>Search Funtionality</li>
     <li>UIKit</li>
     <li>API call and request</li>
     <li>Xibs based UI design.</li>
