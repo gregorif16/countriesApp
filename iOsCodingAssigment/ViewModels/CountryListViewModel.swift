@@ -32,7 +32,7 @@ final class CountryListViewModel {
             if searchText.isEmpty {
                 filteredCountries = countries
             } else {
-                filteredCountries = countries.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+                filteredCountries = countries.filter { $0.name.lowercased().contains(searchText.lowercased()) || countries.filter { $0.capital.lowercased().contains(searchText.lowercased())  }
             }
         }
 }
