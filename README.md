@@ -1,4 +1,4 @@
- <title>Countries App</title>
+
 </head>
 <body>
 
