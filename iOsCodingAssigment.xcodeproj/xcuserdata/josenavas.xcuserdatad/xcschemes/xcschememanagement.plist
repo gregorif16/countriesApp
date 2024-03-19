@@ -9,6 +9,34 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>iOsCodingAssignmentTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>050AD2912B882BA300BB88AE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>050AD2AA2B882BA500BB88AE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>050AD2B42B882BA500BB88AE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>054CEE712BAA32DC00D0F1C8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>
