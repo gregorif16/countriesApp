@@ -51,6 +51,7 @@
 		050AD33D2B8A420200BB88AE /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050AD33C2B8A420200BB88AE /* UIExtensions.swift */; };
 		050AD33F2B8A9F0100BB88AE /* LoadStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050AD33E2B8A9F0100BB88AE /* LoadStatus.swift */; };
 		050AD3412B8AA44000BB88AE /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050AD3402B8AA44000BB88AE /* WelcomeViewModel.swift */; };
+		05BEF8192BAB658200B70917 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 05BEF8182BAB658200B70917 /* CombineCocoa */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,10 +100,10 @@
 		050AD33C2B8A420200BB88AE /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		050AD33E2B8A9F0100BB88AE /* LoadStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadStatus.swift; sourceTree = "<group>"; };
 		050AD3402B8AA44000BB88AE /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
-		054CEE7B2BAA35BC00D0F1C8 /* iOsCodingAssigment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = iOsCodingAssigment.app; path = "/Users/josenavas/Documents/countriesApp/build/Debug-iphoneos/iOsCodingAssigment.app"; sourceTree = "<absolute>"; };
-		054CEE7C2BAA35BC00D0F1C8 /* iOsCodingAssigmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = iOsCodingAssigmentTests.xctest; path = "/Users/josenavas/Documents/countriesApp/build/Debug-iphoneos/iOsCodingAssigment.app/PlugIns/iOsCodingAssigmentTests.xctest"; sourceTree = "<absolute>"; };
-		054CEE7D2BAA35BC00D0F1C8 /* iOsCodingAssigmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = iOsCodingAssigmentUITests.xctest; path = "/Users/josenavas/Documents/countriesApp/build/Debug-iphoneos/iOsCodingAssigmentUITests-Runner.app/PlugIns/iOsCodingAssigmentUITests.xctest"; sourceTree = "<absolute>"; };
-		054CEE7E2BAA35BC00D0F1C8 /* iOsCodingAssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = iOsCodingAssignmentTests.xctest; path = "/Users/josenavas/Documents/countriesApp/build/Debug-iphoneos/iOsCodingAssigment.app/PlugIns/iOsCodingAssignmentTests.xctest"; sourceTree = "<absolute>"; };
+		05BEF8132BAB64F600B70917 /* iOsCodingAssigment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOsCodingAssigment.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05BEF8142BAB64F600B70917 /* iOsCodingAssigmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOsCodingAssigmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		05BEF8152BAB64F600B70917 /* iOsCodingAssigmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOsCodingAssigmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		05BEF8162BAB64F600B70917 /* iOsCodingAssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOsCodingAssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05BEF8192BAB658200B70917 /* CombineCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +143,10 @@
 			isa = PBXGroup;
 			children = (
 				050AD2942B882BA300BB88AE /* iOsCodingAssigment */,
+				05BEF8132BAB64F600B70917 /* iOsCodingAssigment.app */,
+				05BEF8142BAB64F600B70917 /* iOsCodingAssigmentTests.xctest */,
+				05BEF8152BAB64F600B70917 /* iOsCodingAssigmentUITests.xctest */,
+				05BEF8162BAB64F600B70917 /* iOsCodingAssignmentTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -260,8 +266,11 @@
 			dependencies = (
 			);
 			name = iOsCodingAssigment;
+			packageProductDependencies = (
+				05BEF8182BAB658200B70917 /* CombineCocoa */,
+			);
 			productName = iOsCodingAssigment;
-			productReference = 054CEE7B2BAA35BC00D0F1C8 /* iOsCodingAssigment.app */;
+			productReference = 05BEF8132BAB64F600B70917 /* iOsCodingAssigment.app */;
 			productType = "com.apple.product-type.application";
 		};
 		050AD2AA2B882BA500BB88AE /* iOsCodingAssigmentTests */ = {
@@ -279,7 +288,7 @@
 			);
 			name = iOsCodingAssigmentTests;
 			productName = iOsCodingAssigmentTests;
-			productReference = 054CEE7C2BAA35BC00D0F1C8 /* iOsCodingAssigmentTests.xctest */;
+			productReference = 05BEF8142BAB64F600B70917 /* iOsCodingAssigmentTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		050AD2B42B882BA500BB88AE /* iOsCodingAssigmentUITests */ = {
@@ -297,7 +306,7 @@
 			);
 			name = iOsCodingAssigmentUITests;
 			productName = iOsCodingAssigmentUITests;
-			productReference = 054CEE7D2BAA35BC00D0F1C8 /* iOsCodingAssigmentUITests.xctest */;
+			productReference = 05BEF8152BAB64F600B70917 /* iOsCodingAssigmentUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		054CEE712BAA32DC00D0F1C8 /* iOsCodingAssignmentTests */ = {
@@ -315,7 +324,7 @@
 			);
 			name = iOsCodingAssignmentTests;
 			productName = iOsCodingAssignmentTests;
-			productReference = 054CEE7E2BAA35BC00D0F1C8 /* iOsCodingAssignmentTests.xctest */;
+			productReference = 05BEF8162BAB64F600B70917 /* iOsCodingAssignmentTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -354,6 +363,9 @@
 				Base,
 			);
 			mainGroup = 050AD2892B882BA300BB88AE;
+			packageReferences = (
+				05BEF8172BAB658200B70917 /* XCRemoteSwiftPackageReference "CombineCocoa" */,
+			);
 			productRefGroup = 050AD2892B882BA300BB88AE;
 			projectDirPath = "";
 			projectRoot = "";
@@ -846,6 +858,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		05BEF8172BAB658200B70917 /* XCRemoteSwiftPackageReference "CombineCocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineCocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		05BEF8182BAB658200B70917 /* CombineCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 05BEF8172BAB658200B70917 /* XCRemoteSwiftPackageReference "CombineCocoa" */;
+			productName = CombineCocoa;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 050AD28A2B882BA300BB88AE /* Project object */;
 }

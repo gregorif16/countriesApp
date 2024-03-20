@@ -6,33 +6,38 @@
 //
 
 import Foundation
+import Combine
 
 final class CountryListViewModel {
     
     let countryUseCase: CountryUseCaseProtocol
+    private var cancellables = Set<AnyCancellable>()
     
-    var countries: [Country] = []
-    var filteredCountries: [Country] = [] //Variable for the search
+    @Published var countries: [Country] = []
+    var filteredCountries: [Country] = []
+    
     init(countryUseCase: CountryUseCaseProtocol = CountryUseCase()) {
         self.countryUseCase = countryUseCase
     }
     
-    func loadCountries(completion: @escaping () -> Void) {
-        countryUseCase.getCountries { [weak self] countries in
-            self?.countries = countries
-            completion()
+    func loadCountries() {
+        countryUseCase.getCountries { [weak self] countries, error in
+            guard let self = self else { return }
             
-        } onError: { error in
-      
-        }
-    }
-        
-    
-    func filterCountries(by searchText: String) {
-            if searchText.isEmpty {
-                filteredCountries = countries
-            } else {
-                filteredCountries = countries.filter { $0.name.lowercased().contains(searchText.lowercased()) || $0.capital.lowercased().contains(searchText.lowercased())}
+            if let error = error {
+                print("Error fetching countries: \(error)")
+            } else if let countries = countries {
+                self.countries = countries
+                self.filteredCountries = countries
             }
         }
+    }
+    
+    func filterCountries(by searchText: String) {
+        if searchText.isEmpty {
+            filteredCountries = countries
+        } else {
+            filteredCountries = countries.filter { $0.name.lowercased().contains(searchText.lowercased()) || $0.capital.lowercased().contains(searchText.lowercased())}
+        }
+    }
 }

@@ -4,50 +4,46 @@
 //
 //  Created by Gregori Farias  on 19/3/24.
 //
-
 import Foundation
+import Combine
 
 protocol CountryUseCaseProtocol {
-    func getCountries(onSuccess: @escaping ([Country]) -> Void, onError: @escaping (NetworkError) -> Void)
+    func getCountries(completion: @escaping ([Country]?, NetworkError?) -> Void)
 }
 
 final class CountryUseCase: CountryUseCaseProtocol {
-    func getCountries(onSuccess: @escaping ([Country]) -> Void, onError: @escaping (NetworkError) -> Void) {
-            
+    func getCountries(completion: @escaping ([Country]?, NetworkError?) -> Void) {
+        guard let url = URL(string: "\(EndPoints.url.rawValue)") else {
+            completion(nil, .malformedURL)
+            return
+        }
         
-            guard let url = URL(string: "\(EndPoints.url.rawValue)") else {
-                onError(.malformedURL)
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            if error != nil {
+                completion(nil, .other)
                 return
             }
             
-          
-            var urlRequest = URLRequest(url: url)
-            urlRequest.httpMethod = "GET"
-            
-      
-            let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
-                if error != nil {
-                    onError(.other)
-                    return
-                }
-                guard let data = data else {
-                    onError(.noData)
-                    return
-                }
-                
-                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == HTTPResponseCodes.SUCCESS else {
-                    onError(.errorCode((response as? HTTPURLResponse)?.statusCode))
-                    return
-                }
-              
-                do {
-                    let decodedData = try JSONDecoder().decode([Country].self, from: data)
-                    onSuccess(decodedData)
-                } catch {
-                    onError(.decoding)
-                }
+            guard let data = data else {
+                completion(nil, .noData)
+                return
             }
-            task.resume()
+            
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == HTTPResponseCodes.SUCCESS else {
+                completion(nil, .errorCode((response as? HTTPURLResponse)?.statusCode))
+                return
+            }
+            
+            do {
+                let decodedData = try JSONDecoder().decode([Country].self, from: data)
+                completion(decodedData, nil)
+            } catch {
+                completion(nil, .decoding)
+            }
         }
+        task.resume()
     }
-
+}
