@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="countryList" destination="MZY-VJ-y8e" id="q7o-Oo-fEr"/>
                 <outlet property="searchbar" destination="8bL-Pb-SP0" id="Ooj-zC-wWi"/>
+                <outlet property="topBarView" destination="4YQ-e0-XaS" id="lcd-PU-3zI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,53 +21,59 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 1" translatesAutoresizingMaskIntoConstraints="NO" id="vgW-tu-4vP">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="185"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="185" id="GhM-Mw-j6p"/>
-                    </constraints>
-                </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MZY-VJ-y8e">
                     <rect key="frame" x="8" y="185" width="377" height="633"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DarkLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Wop-cN-KCC">
-                    <rect key="frame" x="29" y="48" width="334" height="69"/>
-                </imageView>
-                <searchBar contentMode="redraw" barStyle="blackTranslucent" text="" id="8bL-Pb-SP0">
-                    <rect key="frame" x="16" y="117" width="355" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <color key="tintColor" systemColor="tableCellPlainBackgroundColor"/>
-                    <color key="barTintColor" systemColor="tableCellGroupedBackgroundColor"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="v7P-Ue-VWT"/>
-                    </connections>
-                </searchBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4YQ-e0-XaS">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="185"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countries of the World" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ct-Df-9V9">
+                            <rect key="frame" x="43" y="67" width="306" height="34"/>
+                            <fontDescription key="fontDescription" type="italicSystem" pointSize="31"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <searchBar contentMode="redraw" barStyle="blackTranslucent" text="" id="8bL-Pb-SP0">
+                            <rect key="frame" x="19" y="109" width="355" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="tintColor" systemColor="tableCellPlainBackgroundColor"/>
+                            <color key="barTintColor" systemColor="tableCellGroupedBackgroundColor"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="v7P-Ue-VWT"/>
+                            </connections>
+                        </searchBar>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="0Ct-Df-9V9" secondAttribute="trailing" constant="44" id="3En-eb-goG"/>
+                        <constraint firstItem="8bL-Pb-SP0" firstAttribute="top" secondItem="0Ct-Df-9V9" secondAttribute="bottom" constant="8" id="D7o-AZ-rtW"/>
+                        <constraint firstItem="0Ct-Df-9V9" firstAttribute="leading" secondItem="4YQ-e0-XaS" secondAttribute="leading" constant="43" id="OtQ-80-DA8"/>
+                        <constraint firstItem="0Ct-Df-9V9" firstAttribute="top" secondItem="4YQ-e0-XaS" secondAttribute="top" constant="67" id="bLn-Eb-BLT"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="vgW-tu-4vP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="3mJ-4d-Cf2"/>
-                <constraint firstItem="Wop-cN-KCC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="29" id="8Rc-17-8zb"/>
-                <constraint firstAttribute="bottom" secondItem="Wop-cN-KCC" secondAttribute="bottom" constant="735" id="H3N-XH-OXG"/>
-                <constraint firstItem="MZY-VJ-y8e" firstAttribute="top" secondItem="vgW-tu-4vP" secondAttribute="bottom" id="KR4-gn-63o"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MZY-VJ-y8e" secondAttribute="trailing" constant="8" id="Kt5-X4-Q94"/>
                 <constraint firstItem="MZY-VJ-y8e" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="PPH-nN-hjP"/>
-                <constraint firstItem="Wop-cN-KCC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="48" id="WV6-jH-i0U"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Wop-cN-KCC" secondAttribute="trailing" constant="30" id="Zcm-jA-RRA"/>
+                <constraint firstItem="4YQ-e0-XaS" firstAttribute="centerX" secondItem="MZY-VJ-y8e" secondAttribute="centerX" id="aeE-JP-Thl"/>
+                <constraint firstAttribute="bottom" secondItem="4YQ-e0-XaS" secondAttribute="bottom" constant="667" id="cP2-eO-mcl"/>
                 <constraint firstItem="MZY-VJ-y8e" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="gom-Ea-fSX"/>
-                <constraint firstItem="vgW-tu-4vP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="llj-VM-Mn8"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vgW-tu-4vP" secondAttribute="trailing" id="mFB-JN-bOp"/>
+                <constraint firstItem="MZY-VJ-y8e" firstAttribute="top" secondItem="4YQ-e0-XaS" secondAttribute="bottom" id="wHY-qd-Syn"/>
+                <constraint firstItem="4YQ-e0-XaS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zIW-3t-UVf"/>
             </constraints>
             <point key="canvasLocation" x="84.732824427480907" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
-        <image name="DarkLogo" width="1425" height="300"/>
-        <image name="Rectangle 1" width="430" height="197"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tableCellGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

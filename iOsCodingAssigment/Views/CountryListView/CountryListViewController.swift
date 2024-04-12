@@ -12,6 +12,7 @@ import CombineCocoa
     class CountryListViewController: UIViewController {
         
        
+        @IBOutlet weak var topBarView: UIView!
         @IBOutlet weak var searchbar: UISearchBar!
         @IBOutlet weak var countryList: UITableView!
         
@@ -30,18 +31,6 @@ import CombineCocoa
             override func viewDidLoad() {
                 super.viewDidLoad()
                 
-                // Deactivate navigation backwards
-                navigationController?.isNavigationBarHidden = true
-                navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-                
-                // Eliminate the background of the searchbar
-                searchbar.backgroundImage = UIImage()
-                
-                // Activation of search bar
-                searchbar.delegate = self
-                
-                let nib = UINib(nibName: "TableViewCell", bundle: nil)
-                countryList.register(nib, forCellReuseIdentifier: "CountryCell")
                 
                 countryList.dataSource = self
                 countryList.delegate = self
@@ -55,6 +44,8 @@ import CombineCocoa
                             .store(in: &cancellables)
                         
                         viewModel.loadCountries()
+                
+                setUpUI()
                     
             }
             
@@ -69,7 +60,7 @@ import CombineCocoa
             }
         }
 
-        extension CountryListViewController: UITableViewDataSource, UITableViewDelegate {
+    extension CountryListViewController: UITableViewDataSource, UITableViewDelegate {
             func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
                 return viewModel.filteredCountries.count
             }
@@ -86,9 +77,38 @@ import CombineCocoa
             }
         }
 
-        extension CountryListViewController: UISearchBarDelegate {
+    extension CountryListViewController: UISearchBarDelegate {
             func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
                 viewModel.filterCountries(by: searchText)
                 countryList.reloadData()
             }
+            
         }
+
+    extension CountryListViewController {
+        func setUpUI() {
+            // Apply corner radius to topBarView's bottom corners
+            let maskLayer = CAShapeLayer()
+            maskLayer.path = UIBezierPath(roundedRect: topBarView.bounds,
+                                          byRoundingCorners: [.bottomLeft, .bottomRight],
+                                          cornerRadii: CGSize(width: 10.0, height: 10.0)).cgPath
+            topBarView.layer.mask = maskLayer
+            
+            
+            // Deactivate navigation backwards
+            navigationController?.isNavigationBarHidden = true
+            navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+            
+            // Eliminate the background of the searchbar
+            searchbar.backgroundImage = UIImage()
+            
+            // Activation of search bar
+            searchbar.delegate = self
+            
+            let nib = UINib(nibName: "TableViewCell", bundle: nil)
+            countryList.register(nib, forCellReuseIdentifier: "CountryCell")
+            
+            
+        }
+    }
+
